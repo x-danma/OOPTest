@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	int hello;
 
 	hello = 2;
-	mySum(&hello, 3);
+ 	int mysum =	mySum(&hello, 3);
 
 	whatIsHello(&hello);
 
