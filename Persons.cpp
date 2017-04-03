@@ -1,5 +1,17 @@
 //Personregister CRUD på person]
 
+
+int mySum(int* a, int b)
+{
+	return *a+b;
+}
+
+void whatIsHello(int* a) 
+{
+	printf("My hello is %lu \n", a);
+}
+
+
 int main(int argc, char const *argv[])
 {
 	/* code */
@@ -12,16 +24,6 @@ int main(int argc, char const *argv[])
 	whatIsHello(&hello);
 
 	return 0;
-}
-
-int mySum(int* a, int b)
-{
-	return *a+b;
-}
-
-void whatIsHello(int* a) 
-{
-	printf("My hello is %lu \n", a);
 }
 
 
