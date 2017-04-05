@@ -1,2 +1,2 @@
 # OOPTest
-Differences between OOP and Functional Programming
+Differences between OOP and Procedural Programming
