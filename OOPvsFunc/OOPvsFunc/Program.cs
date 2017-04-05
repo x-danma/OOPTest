@@ -8,6 +8,30 @@ namespace OOPvsFunc
 {
     class Program
     {
+        public Menu Menu
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public PersonRegister Register
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
@@ -15,6 +39,12 @@ namespace OOPvsFunc
             // Eller kanske ett kortspel? med randomisering för Dice-throws?
 
             /*Programmet ska hantera ett personregister
+             * programmet ska en meny för 
+             *  - Visa listan
+             *  - lägga till person i listan
+             *  - ta bort person i listan
+             *  - avsluta programmet 
+             * 
              * För listan kan man 
              *  - Lägga till
              *  - Ta bort
@@ -29,6 +59,17 @@ namespace OOPvsFunc
              * 
              * 
              * */
+             
+        }
+
+        public void Run()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void Quit()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
