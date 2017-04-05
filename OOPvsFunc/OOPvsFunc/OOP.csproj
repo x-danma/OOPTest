@@ -43,8 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAction.cs" />
+    <Compile Include="GUI.cs" />
+    <Compile Include="IMenu.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="Name.cs" />
+    <Compile Include="OOPvsFunc\Action.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="PersonAction.cs" />
+    <Compile Include="PersonRegister.cs" />
+    <Compile Include="PrintAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuitAction.cs" />
+    <Compile Include="RemoveAction.cs" />
+    <Compile Include="SocialNumber.cs" />
+    <Compile Include="Terminal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
