@@ -1,21 +1,18 @@
-#include <cstdio>
-#include <cstring>
-using namespace std;
+#include <stdio.h>
+#include <string.h>
+#include "Persons.include"
 
-struct Person
-{
-	char firstName[32];
-	char surName[32];
+struct Person {
+	char first_name[32];
+	char surname[32];
 	int age;
 	char ssn[32];
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
 	Person people[64];
-	int numPeople;
-	while (true) 
-	{
+	int num_people;
+	while (true) {
 		puts(
 			"Hello welcome to the personprogram.\n"
 			"Enter q to quit\n"
@@ -26,35 +23,31 @@ int main(int argc, char const *argv[])
 		char command;
 		while((command = getchar()) == '\n');
 		while(getchar() != '\n');
-		switch (command)
-		{
+		switch (command) {
 			case 'q': return 0;
-			case 'p':
-			{
+			case 'p': {
 				printf("Your people are:\n");
-				for (int i = 0; i < numPeople; ++i)
-					printf("- %s %s %i %s \n",people[i].firstName,people[i].surName, people[i].age, people[i].ssn);
+				for (int i = 0; i < num_people; ++i)
+					printf("- %s %s %i %s \n",people[i].first_name,people[i].surname, people[i].age, people[i].ssn);
 			} break;
-			case 'a':
-			{
-				puts("Enter firstName");
-				scanf("%32s", people[numPeople].firstName);
-				puts("Enter surName");
-				scanf("%32s", people[numPeople].surName);
+			case 'a': {
+				puts("Enter first_name");
+				getline(people[num_people].first_name, sizeof(people[num_people].first_name));
+				puts("Enter surname");
+				getline(people[num_people].surname, sizeof(people[num_people].surname));
 				puts("Enter age");
-				scanf("%i", &people[numPeople].age);
+				scanf("%i", &people[num_people].age);
 				puts("Enter social security number");
-				scanf("%32s", people[numPeople].ssn);
-				numPeople++;
+				getline(people[num_people].ssn, sizeof(people[num_people].ssn));
+				++num_people;
 			} break;
-			case 'd':
-			{
+			case 'd': {
 				puts("Enter social security number");
 				char ssn[32];
-				scanf("%32s", ssn);
-				for (int i = 0; i < numPeople; ++i)
+        getline(ssn, sizeof(ssn));
+				for (int i = 0; i < num_people; ++i)
 					if (strcmp(people[i].ssn, ssn) == 0)
-						people[i] = people[--numPeople];
+						people[i] = people[--num_people];
 			} break;
 		}
 	}
