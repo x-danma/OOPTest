@@ -36,7 +36,7 @@ int main(int argc, char const *argv[]) {
 				puts("Enter surname");
 				getline(people[num_people].surname, sizeof(people[num_people].surname));
 				puts("Enter age");
-				scanf("%i", &people[num_people].age);
+				scanf("%i", &people[num_people].age); while(getchar() != '\n');
 				puts("Enter social security number");
 				getline(people[num_people].ssn, sizeof(people[num_people].ssn));
 				++num_people;
