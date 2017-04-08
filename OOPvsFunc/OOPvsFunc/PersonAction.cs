@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OOPvsFunc
 {
-    public class PersonAction : Action
+    public class PersonAction : IAction
     {
         public int Ssn
         {
@@ -17,6 +17,12 @@ namespace OOPvsFunc
             set
             {
             }
+        }
+
+    
+        public void Execute(Program program, GUI gui, PersonRegister personRegister)
+        {
+            throw new NotImplementedException();
         }
     }
 }

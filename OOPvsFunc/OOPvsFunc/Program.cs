@@ -6,35 +6,45 @@ using System.Threading.Tasks;
 
 namespace OOPvsFunc
 {
-    class Program
+   public class Program
     {
-        public Menu Menu
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
 
-            set
-            {
-            }
-        }
+        private GUI _gui;
+        private PersonRegister _register;
+        bool keepAlive;
 
         public PersonRegister Register
         {
             get
             {
-                throw new System.NotImplementedException();
+                return _register;
             }
 
             set
             {
+                _register = value;
+            }
+        }
+
+        private GUI GUI
+        {
+            get
+            {
+                return _gui;
+            }
+
+            set
+            {
+                _gui = value;
             }
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            Program currentProgram = new Program();
+            currentProgram.Run();
+
+
             //Vad göra? ett program som kanske tittar på en lista av objekt och visar upp dem i en tabell? CRUD på det?
             // Eller kanske ett kortspel? med randomisering för Dice-throws?
 
@@ -59,17 +69,22 @@ namespace OOPvsFunc
              * 
              * 
              * */
-             
+
         }
 
         public void Run()
         {
-            throw new System.NotImplementedException();
+            while (keepAlive)
+            {
+                GUI.ShowMenu();
+                IAction action = GUI.GetAction();
+                action.Execute(this, GUI, Register);   
+            }
         }
 
-        private void Quit()
+        public void Quit()
         {
-            throw new System.NotImplementedException();
+            keepAlive = false;
         }
     }
 }
