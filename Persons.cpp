@@ -24,13 +24,14 @@ int main(int argc, char const *argv[]) {
 		while((command = getchar()) == '\n');
 		while(getchar() != '\n');
 		switch (command) {
-			case 'q': return 0;
-			case 'p': {
+			case 'q':
+				return 0;
+			case 'p':
 				printf("Your people are:\n");
 				for (int i = 0; i < num_people; ++i)
 					printf("- %s %s %i %s \n",people[i].first_name,people[i].surname, people[i].age, people[i].ssn);
-			} break;
-			case 'a': {
+				break;
+			case 'a':
 				puts("Enter first_name");
 				getline(people[num_people].first_name, sizeof(people[num_people].first_name));
 				puts("Enter surname");
@@ -40,15 +41,15 @@ int main(int argc, char const *argv[]) {
 				puts("Enter social security number");
 				getline(people[num_people].ssn, sizeof(people[num_people].ssn));
 				++num_people;
-			} break;
-			case 'd': {
+				break;
+			case 'd':
 				puts("Enter social security number");
 				char ssn[32];
         getline(ssn, sizeof(ssn));
 				for (int i = 0; i < num_people; ++i)
 					if (strcmp(people[i].ssn, ssn) == 0)
 						people[i] = people[--num_people];
-			} break;
+				break;
 		}
 	}
 	return 0;
