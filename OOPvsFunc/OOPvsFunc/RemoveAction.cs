@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OOPvsFunc
 {
-    public class RemoveAction : PersonAction
+    public class DeleteAction : PersonAction
     {
     }
 }

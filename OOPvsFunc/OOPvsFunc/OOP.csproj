@@ -48,7 +48,9 @@
     <Compile Include="IMenu.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Name.cs" />
+    <Compile Include="NoActionException.cs" />
     <Compile Include="OOPvsFunc\Action.cs" />
+    <Compile Include="OOPvsFunc\Response.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonAction.cs" />
     <Compile Include="PersonRegister.cs" />
