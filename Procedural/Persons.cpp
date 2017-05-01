@@ -9,6 +9,20 @@ struct Person {
 	char ssn[32];
 };
 
+void get_string(const char* msg, char* buf, int num) {
+	puts(msg);
+	getline(buf, num);
+}
+void get_int(const char* msg, int* result) {
+	int success;
+	while (true) {
+		puts(msg);
+		success = scanf("%i", result); while(getchar() != '\n');
+		if (success) return;
+		puts("Please enter a number\n----------------");
+	}
+}
+
 int main(int argc, char const *argv[]) {
 	Person people[64];
 	int num_people;
@@ -27,28 +41,27 @@ int main(int argc, char const *argv[]) {
 			case 'q':
 				return 0;
 			case 'p':
-				printf("Your people are:\n");
+				puts("Your people are:");
 				for (int i = 0; i < num_people; ++i)
 					printf("- %s %s %i %s \n",people[i].first_name,people[i].surname, people[i].age, people[i].ssn);
 				break;
 			case 'a':
-				puts("Enter first_name");
-				getline(people[num_people].first_name, sizeof(people[num_people].first_name));
-				puts("Enter surname");
-				getline(people[num_people].surname, sizeof(people[num_people].surname));
-				puts("Enter age");
-				scanf("%i", &people[num_people].age); while(getchar() != '\n');
-				puts("Enter social security number");
-				getline(people[num_people].ssn, sizeof(people[num_people].ssn));
-				++num_people;
+				Person p = {0};
+				get_string("Enter first name", p.first_name, sizeof(p.first_name));
+				get_string("Enter surname", p.surname, sizeof(p.surname));
+				get_int("Enter age", &p.age);
+				get_string("Enter social security number", p.ssn, sizeof(p.ssn));
+				people[num_people++] = p;
 				break;
 			case 'd':
-				puts("Enter social security number");
 				char ssn[32];
-        getline(ssn, sizeof(ssn));
+				get_string("Enter social security number", ssn, sizeof(ssn));
 				for (int i = 0; i < num_people; ++i)
 					if (strcmp(people[i].ssn, ssn) == 0)
 						people[i] = people[--num_people];
+				break;
+			default:
+				puts("Not a valid option");
 				break;
 		}
 	}
