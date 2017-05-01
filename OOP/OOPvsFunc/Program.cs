@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace OOPvsFunc
 {
-   public class Program
+    public class Program
     {
 
-        private GUI _gui;
-        private PersonRegister _register;
-        bool keepAlive;
+        private TerminalGUI _gui = new TerminalGUI();
+        private PersonRegister _register = new PersonRegister();
+        bool keepAlive = true;
 
         public PersonRegister Register
         {
@@ -26,7 +26,7 @@ namespace OOPvsFunc
             }
         }
 
-        private GUI GUI
+        public TerminalGUI Gui
         {
             get
             {
@@ -76,9 +76,15 @@ namespace OOPvsFunc
         {
             while (keepAlive)
             {
-                GUI.ShowMenu();
-                IAction action = GUI.GetAction();
-                action.Execute(this, GUI, Register);   
+                Gui.ShowMenu();
+                try
+                {
+                    IAction action = Gui.GetAction();
+                    action.Execute(this);
+                }
+                catch (Exception)
+                {
+                }
             }
         }
 

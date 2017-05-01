@@ -7,5 +7,13 @@ namespace OOPvsFunc
 {
     public class DeleteAction : PersonAction
     {
+        public DeleteAction(SocialNumber socialNumber)
+        {
+            this.ssn = socialNumber;
+        }
+        public override void Execute(Program program)
+        {
+            program.Register.DeletePerson(ssn);
+        }
     }
 }

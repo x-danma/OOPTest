@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddAction.cs" />
-    <Compile Include="GUI.cs" />
+    <Compile Include="TerminalGUI.cs" />
     <Compile Include="IMenu.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Name.cs" />
@@ -60,7 +60,6 @@
     <Compile Include="QuitAction.cs" />
     <Compile Include="RemoveAction.cs" />
     <Compile Include="SocialNumber.cs" />
-    <Compile Include="Terminal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

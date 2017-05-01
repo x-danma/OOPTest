@@ -3,7 +3,7 @@
   <Class Name="OOPvsFunc.Program">
     <Position X="4" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABAAAABAABBAAAAAAAJAAAAQI=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAAAAABAAAAAAABBAAAAAAAJAAAAQI=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -16,21 +16,13 @@
       <HashCode>AAAAAEAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="FirstName" />
-      <Property Name="LastName" />
-      <Property Name="Ssn" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="OOPvsFunc.PersonRegister">
     <Position X="7" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAIAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>AAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEA=</HashCode>
       <FileName>PersonRegister.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="People" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="OOPvsFunc.Name">
     <Position X="12.75" Y="6.75" Width="1.5" />
@@ -42,21 +34,21 @@
   <Class Name="OOPvsFunc.SocialNumber">
     <Position X="10" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>SocialNumber.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOPvsFunc.AddAction">
     <Position X="6.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>AddAction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOPvsFunc.DeleteAction">
     <Position X="8.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RemoveAction.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +58,6 @@
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PrintAction.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="OOPvsFunc.QuitAction">
     <Position X="11.75" Y="2.25" Width="1.5" />
@@ -79,16 +70,16 @@
   <Class Name="OOPvsFunc.PersonAction">
     <Position X="7.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>PersonAction.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="OOPvsFunc.GUI">
+  <Class Name="OOPvsFunc.TerminalGUI">
     <Position X="1" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAABAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
-      <FileName>GUI.cs</FileName>
+      <HashCode>AAAAAAAAAABAAAAAABAACAAAAAAQAAAAAAAAAAABAAA=</HashCode>
+      <FileName>TerminalGUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="OOPvsFunc.IAction" Collapsed="true">

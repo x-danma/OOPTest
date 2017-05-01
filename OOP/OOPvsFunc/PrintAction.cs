@@ -7,12 +7,9 @@ namespace OOPvsFunc
 {
     public class PrintAction : IAction
     {
-       
-   
-
-        public void Execute(Program program, GUI gui, PersonRegister personRegister)
+        public void Execute(Program program)
         {
-            throw new NotImplementedException();
+            program.Gui.ShowPeople(program.Register.People);
         }
     }
 }

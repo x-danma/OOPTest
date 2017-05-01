@@ -7,52 +7,17 @@ namespace OOPvsFunc
 {
     public class Person
     {
-        public Name FirstName
+        public string FirstName { get; }
+        public string LastName { get; }
+        public int Age { get; }
+        public SocialNumber Ssn { get; }
+
+        public Person(string firstname, string lastname, int age, SocialNumber ssn)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Name LastName
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public uint Age
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public SocialNumber Ssn
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            FirstName = firstname;
+            LastName = lastname;
+            Age = age;
+            Ssn = ssn;
         }
     }
 }

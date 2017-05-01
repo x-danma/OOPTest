@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -7,31 +9,26 @@ namespace OOPvsFunc
 {
     public class PersonRegister
     {
-        public List<Person> People
+        private List<Person> people = new List<Person>();
+
+        public ReadOnlyCollection<Person> People
         {
-            get
+            get 
             {
-                throw new System.NotImplementedException();
+                return people.AsReadOnly();
             }
 
-            set
-            {
-            }
+           
         }
 
-        public void AddPerson()
+        internal void DeletePerson(SocialNumber ssn)
         {
-            throw new System.NotImplementedException();
+            people.RemoveAt(people.FindIndex(x => x.Ssn.Equals(ssn)));
         }
 
-        public void RemovePerson()
+        public void AddPerson(Person newPerson)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Person> GetPeople()
-        {
-            throw new System.NotImplementedException();
+            people.Add(newPerson);
         }
     }
 }

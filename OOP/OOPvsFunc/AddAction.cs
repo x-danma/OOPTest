@@ -7,40 +7,16 @@ namespace OOPvsFunc
 {
     public sealed class AddAction : PersonAction
     {
-        public int FirstName
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        private Person person;
 
-            set
-            {
-            }
+        public AddAction(Person person)
+        {
+            this.person = person;
         }
 
-        public int LastName
+        public override void Execute(Program program)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Age
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            program.Register.AddPerson(person);
         }
     }
 }
