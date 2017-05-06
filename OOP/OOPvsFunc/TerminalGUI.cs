@@ -17,13 +17,14 @@ namespace OOPvsFunc
             }
         }
 
-        public void ShowMenu()
+        public virtual void ShowMenu()
         {
             Console.WriteLine(@"Hello welcome to the personprogram.
             Enter q to quit
             Enter p to print persons
             Enter a to add person
-            Enter d to delete a person by ssn"
+            Enter d to delete a person by ssn
+            Enter m to switch menu  "
             );
         }
 
@@ -40,6 +41,8 @@ namespace OOPvsFunc
                     return new AddAction(new Person(GetStringInput("Enter firstname"), GetStringInput("Enter last name"), GetIntInput("Enter age"), new SocialNumber(GetStringInput("Enter Social security number"))));
                 case "d":
                     return new DeleteAction(new SocialNumber(GetStringInput("Enter social security number")));
+                case "m":
+                    return new SwitchMenuAction();
                 default:
                     Console.WriteLine("Please enter a correct input\n----------------------\n");
                     throw new FormatException();

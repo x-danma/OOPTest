@@ -11,7 +11,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="OOPvsFunc.Person">
-    <Position X="10" Y="6.75" Width="1.5" />
+    <Position X="10" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Person.cs</FileName>
@@ -34,7 +34,7 @@
   <Class Name="OOPvsFunc.SocialNumber">
     <Position X="10" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAABAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>SocialNumber.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -49,21 +49,22 @@
     <Position X="8.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>RemoveAction.cs</FileName>
+      <FileName>Actions\RemoveAction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOPvsFunc.PrintAction">
     <Position X="9.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>PrintAction.cs</FileName>
+      <FileName>Actions\PrintAction.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="OOPvsFunc.QuitAction">
     <Position X="11.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>QuitAction.cs</FileName>
+      <FileName>Actions\QuitAction.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -71,7 +72,7 @@
     <Position X="7.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
-      <FileName>PersonAction.cs</FileName>
+      <FileName>Actions\PersonAction.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -81,6 +82,21 @@
       <HashCode>AAAAAAAAAABAAAAAABAACAAAAAAQAAAAAAAAAAABAAA=</HashCode>
       <FileName>TerminalGUI.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="OOPvsFunc.PrettyTerminalGUI">
+    <Position X="1" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>PrettyTerminalGUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOPvsFunc.SwitchMenuAction" Collapsed="true">
+    <Position X="13.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\SwitchMenuAction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="OOPvsFunc.IAction" Collapsed="true">
     <Position X="9.5" Y="0.75" Width="1.5" />
