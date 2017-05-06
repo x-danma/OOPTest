@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "Persons.include"
 
 struct Person {
@@ -23,10 +24,10 @@ void get_int(const char* msg, int* result) {
 	}
 }
 
-int main(int argc, char const *argv[]) {
+int main(int, char const **) {
 	enum MenuType {NORMAL_MENU, PRETTY_MENU, SIMPLE_MENU, SELECT_MENU };
 	MenuType  menu_type = NORMAL_MENU;
-	Person* people = malloc(64*sizeof(Person));
+	Person* people = (Person*) malloc(64*sizeof(Person));
 	int num_people = 0, capacity = 64;
 	while (true) {
 		switch (menu_type) {
@@ -77,18 +78,18 @@ int main(int argc, char const *argv[]) {
 						for (int i = 0; i < num_people; ++i)
 							printf("- %s %s %i %s \n",people[i].first_name,people[i].surname, people[i].age, people[i].ssn);
 						break;
-					case 'a':
-						Person p = {0};
-						get_string("Enter first name", p.first_name, sizeof(p.first_name));
-						get_string("Enter surname", p.surname, sizeof(p.surname));
-						get_int("Enter age", &p.age);
-						get_string("Enter social security number", p.ssn, sizeof(p.ssn));
-						if (num_people == capacity) {
-							capacity *= 2;
-							people = realloc(people, capacity*sizeof(Person));
-						}
-						people[num_people++] = p;
-						break;
+					case 'a': {
+              Person p = {};
+              get_string("Enter first name", p.first_name, sizeof(p.first_name));
+              get_string("Enter surname", p.surname, sizeof(p.surname));
+              get_int("Enter age", &p.age);
+              get_string("Enter social security number", p.ssn, sizeof(p.ssn));
+              if (num_people == capacity) {
+                capacity *= 2;
+                people = (Person*) realloc(people, capacity*sizeof(Person));
+              }
+              people[num_people++] = p;
+          } break;
 					case 'd':
 						char ssn[32];
 						get_string("Enter social security number", ssn, sizeof(ssn));
