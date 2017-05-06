@@ -30,6 +30,7 @@ int main(int, char const **) {
   Person* people = (Person*) malloc(64*sizeof(Person));
   int num_people = 0, capacity = 64;
   while (true) {
+    /* Print menu */
     switch (menu_type) {
       case NORMAL_MENU:   
         puts(
@@ -64,9 +65,13 @@ int main(int, char const **) {
         );
         break;
     }
+
+    /* Get input */
     char command;
     while((command = getchar()) == '\n');
     while(getchar() != '\n');
+
+    /* Process input */
     switch (menu_type) {
       case NORMAL_MENU: 
       case PRETTY_MENU:
@@ -119,7 +124,6 @@ int main(int, char const **) {
           default: puts("Not valid option");
         }
         break;
-
     }
   }
   return 0;
