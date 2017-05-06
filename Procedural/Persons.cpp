@@ -79,16 +79,16 @@ int main(int, char const **) {
               printf("- %s %s %i %s \n",people[i].first_name,people[i].surname, people[i].age, people[i].ssn);
             break;
           case 'a': {
-              Person p = {};
-              get_string("Enter first name", p.first_name, sizeof(p.first_name));
-              get_string("Enter surname", p.surname, sizeof(p.surname));
-              get_int("Enter age", &p.age);
-              get_string("Enter social security number", p.ssn, sizeof(p.ssn));
-              if (num_people == capacity) {
-                capacity *= 2;
-                people = (Person*) realloc(people, capacity*sizeof(Person));
-              }
-              people[num_people++] = p;
+            Person p = {};
+            get_string("Enter first name", p.first_name, sizeof(p.first_name));
+            get_string("Enter surname", p.surname, sizeof(p.surname));
+            get_int("Enter age", &p.age);
+            get_string("Enter social security number", p.ssn, sizeof(p.ssn));
+            if (num_people == capacity) {
+              capacity *= 2;
+              people = (Person*) realloc(people, capacity*sizeof(Person));
+            }
+            people[num_people++] = p;
           } break;
           case 'd':
             char ssn[32];
@@ -101,12 +101,12 @@ int main(int, char const **) {
             menu_type = SELECT_MENU;
             break;
           default:
-            puts("Not a valid option");
+            puts("Not valid option");
             break;
         }
         break;
       case SIMPLE_MENU:
-        if (command== 'm')
+        if (command == 'm')
           menu_type = SELECT_MENU;
         else 
           puts("Not valid option");
@@ -116,6 +116,7 @@ int main(int, char const **) {
           case 'n': menu_type = NORMAL_MENU; break;
           case 'p': menu_type = PRETTY_MENU; break;
           case 's': menu_type = SIMPLE_MENU; break;
+          default: puts("Not valid option");
         }
         break;
 
