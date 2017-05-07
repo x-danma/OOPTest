@@ -38,7 +38,7 @@ void push_person(PersonList* l, Person p) {
 }
 
 PersonList personlist_create(int capacity = 64) {
-  PersonList result = {0, capacity, malloc(capacity*sizeof(Person))};
+  PersonList result = {0, capacity, (Person*) malloc(capacity*sizeof(Person))};
   return result;
 }
 
@@ -90,7 +90,7 @@ int main(int, char const **) {
 
     /* Process input */
     switch (menu_type) {
-      case NORMAL_MENU: 
+      case NORMAL_MENU:
       case PRETTY_MENU:
         switch (command) {
           case 'q':
@@ -98,7 +98,7 @@ int main(int, char const **) {
           case 'p':
             puts("Your people are:");
             for (int i = 0; i < person_list.count; ++i)
-              printf("- %s %s %i %s \n",person_list.people[i].first_name,person_list.people[i].surname, person_list.people[i].age, person_list.people[i].ssn);
+              printf("%s%s %s %i %s \n", menu_type == NORMAL_MENU ? " - " : " <3 ", person_list.people[i].first_name, person_list.people[i].surname, person_list.people[i].age, person_list.people[i].ssn);
             break;
           case 'a': {
             Person p = {};
