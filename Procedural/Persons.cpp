@@ -24,11 +24,28 @@ void get_int(const char* msg, int* result) {
   }
 }
 
+struct PersonList {
+  int count, capacity;
+  Person* people;
+};
+
+void push_person(PersonList* l, Person p) {
+  if (l->count == l->capacity) {
+    l->capacity *= 2;
+    l->people = (Person*) realloc(l->people, l->capacity*sizeof(Person));
+  }
+  l->people[l->count++] = p;
+}
+
+PersonList personlist_create(int capacity = 64) {
+  PersonList result = {0, capacity, malloc(capacity*sizeof(Person))};
+  return result;
+}
+
 int main(int, char const **) {
   enum MenuType {NORMAL_MENU, PRETTY_MENU, SIMPLE_MENU, SELECT_MENU };
   MenuType  menu_type = NORMAL_MENU;
-  Person* people = (Person*) malloc(64*sizeof(Person));
-  int num_people = 0, capacity = 64;
+  PersonList person_list = personlist_create();
   while (true) {
     /* Print menu */
     switch (menu_type) {
@@ -80,8 +97,8 @@ int main(int, char const **) {
             return 0;
           case 'p':
             puts("Your people are:");
-            for (int i = 0; i < num_people; ++i)
-              printf("- %s %s %i %s \n",people[i].first_name,people[i].surname, people[i].age, people[i].ssn);
+            for (int i = 0; i < person_list.count; ++i)
+              printf("- %s %s %i %s \n",person_list.people[i].first_name,person_list.people[i].surname, person_list.people[i].age, person_list.people[i].ssn);
             break;
           case 'a': {
             Person p = {};
@@ -89,18 +106,14 @@ int main(int, char const **) {
             get_string("Enter surname", p.surname, sizeof(p.surname));
             get_int("Enter age", &p.age);
             get_string("Enter social security number", p.ssn, sizeof(p.ssn));
-            if (num_people == capacity) {
-              capacity *= 2;
-              people = (Person*) realloc(people, capacity*sizeof(Person));
-            }
-            people[num_people++] = p;
+            push_person(&person_list, p);
           } break;
           case 'd':
             char ssn[32];
             get_string("Enter social security number", ssn, sizeof(ssn));
-            for (int i = 0; i < num_people; ++i)
-              if (strcmp(people[i].ssn, ssn) == 0)
-                people[i] = people[--num_people];
+            for (int i = 0; i < person_list.count; ++i)
+              if (strcmp(person_list.people[i].ssn, ssn) == 0)
+                person_list.people[i] = person_list.people[--person_list.count];
             break;
           case 'm':
             menu_type = SELECT_MENU;
