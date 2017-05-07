@@ -24,6 +24,7 @@ namespace OOPvsFunc
             Enter p to print persons
             Enter a to add person
             Enter d to delete a person by ssn
+            Enter f to read people from file
             Enter m to switch menu  "
             );
         }
@@ -43,6 +44,18 @@ namespace OOPvsFunc
                     return new DeleteAction(new SocialNumber(GetStringInput("Enter social security number")));
                 case "m":
                     return new SwitchMenuAction();
+                case "f":
+                    Action a;
+                    while (true) {
+                        try
+                        {
+                            a = new ReadFromFileAction(GetStringInput("Enter filename"));
+                        } catch (Exception e)
+                        {
+                            Console.WriteLine("Please enter a valid filename");
+                        }
+                    }
+                    return a;
                 default:
                     Console.WriteLine("Please enter a correct input\n----------------------\n");
                     throw new FormatException();
