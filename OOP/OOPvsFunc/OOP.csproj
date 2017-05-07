@@ -43,12 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUIs\SwitchMenuGUI.cs" />
     <Compile Include="AddAction.cs" />
-    <Compile Include="PrettyTerminalGUI.cs" />
+    <Compile Include="GUIs\IGUI.cs" />
+    <Compile Include="GUIs\PrettyTerminalGUI.cs" />
     <Compile Include="Actions\SwitchMenuAction.cs" />
-    <Compile Include="TerminalGUI.cs" />
-    <Compile Include="IMenu.cs" />
-    <Compile Include="Menu.cs" />
+    <Compile Include="GUIs\SimpleMenuGUI.cs" />
+    <Compile Include="GUIs\TerminalGUI.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="NoActionException.cs" />
     <Compile Include="OOPvsFunc\Action.cs" />

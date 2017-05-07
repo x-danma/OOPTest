@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace OOPvsFunc
 {
     public class PrettyTerminalGUI : TerminalGUI
     {
+        protected override string ShowPeoplePrefix { get; set; } = " <3 ";
         public override void ShowMenu()
         {
             Console.WriteLine(@"
