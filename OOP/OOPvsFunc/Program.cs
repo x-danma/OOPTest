@@ -9,7 +9,7 @@ namespace OOPvsFunc
     public class Program
     {
 
-        private TerminalGUI _gui = new TerminalGUI();
+        private IGUI _gui = new TerminalGUI();
         private PersonRegister _register = new PersonRegister();
         bool keepAlive = true;
 
@@ -26,7 +26,7 @@ namespace OOPvsFunc
             }
         }
 
-        public TerminalGUI Gui
+        public IGUI Gui
         {
             get
             {

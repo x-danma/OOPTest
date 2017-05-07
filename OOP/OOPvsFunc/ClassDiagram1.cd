@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="OOPvsFunc.Program">
+  <Class Name="OOPvsFunc.Program" Collapsed="true">
     <Position X="4" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAABAAAAAAABBAAAAAAAJAAAAQI=</HashCode>
@@ -76,27 +76,42 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="OOPvsFunc.TerminalGUI">
-    <Position X="1" Y="6.75" Width="1.5" />
+  <Class Name="OOPvsFunc.TerminalGUI" Collapsed="true">
+    <Position X="0.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAAABAACAAAAAAQAAAAAAAAAAABAAA=</HashCode>
-      <FileName>TerminalGUI.cs</FileName>
+      <FileName>GUIs\TerminalGUI.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="OOPvsFunc.PrettyTerminalGUI">
-    <Position X="1" Y="9" Width="1.5" />
+  <Class Name="OOPvsFunc.PrettyTerminalGUI" Collapsed="true">
+    <Position X="0.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
-      <FileName>PrettyTerminalGUI.cs</FileName>
+      <FileName>GUIs\PrettyTerminalGUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOPvsFunc.SwitchMenuAction" Collapsed="true">
     <Position X="13.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Actions\SwitchMenuAction.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OOPvsFunc.SimpleMenuGUI">
+    <Position X="2.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>GUIs\SimpleMenuGUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOPvsFunc.SwitchMenuGUI" Collapsed="true">
+    <Position X="4.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAABAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>GUIs\SwitchMenuGUI.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="OOPvsFunc.IAction" Collapsed="true">
     <Position X="9.5" Y="0.75" Width="1.5" />

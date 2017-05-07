@@ -6,14 +6,15 @@ using System.Text;
 
 namespace OOPvsFunc
 {
-    public class TerminalGUI
+    public class TerminalGUI : IGUI
     {
-        internal void ShowPeople(ReadOnlyCollection<Person> people)
+        protected virtual string ShowPeoplePrefix { get; set; } = " - ";
+        public void ShowPeople(ReadOnlyCollection<Person> people)
         {
             Console.WriteLine("Your current people in your register are:");
             foreach (var person in people)
             {
-                Console.WriteLine($" - {person.FirstName} {person.LastName} {person.Age} {person.Ssn}");
+                Console.WriteLine($"{ShowPeoplePrefix}{person.FirstName} {person.LastName} {person.Age} {person.Ssn}");
             }
         }
 
@@ -28,7 +29,7 @@ namespace OOPvsFunc
             );
         }
 
-        public IAction GetAction()
+        public virtual IAction GetAction()
         {
 
             string input = Console.ReadLine();
@@ -42,13 +43,11 @@ namespace OOPvsFunc
                 case "d":
                     return new DeleteAction(new SocialNumber(GetStringInput("Enter social security number")));
                 case "m":
-                    return new SwitchMenuAction();
+                    return new SwitchMenuAction(new SwitchMenuGUI());
                 default:
                     Console.WriteLine("Please enter a correct input\n----------------------\n");
                     throw new FormatException();
             }
-
-
         }
 
         private string GetStringInput(string v)
@@ -64,9 +63,7 @@ namespace OOPvsFunc
             {
                 Console.WriteLine(v);
                 if (Int32.TryParse(Console.ReadLine(), out output))
-                {
                     return output;
-                }
                 Console.WriteLine("Please enter a number\n----------------------\n");
             }
         }
