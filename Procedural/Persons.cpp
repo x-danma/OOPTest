@@ -57,6 +57,7 @@ int main(int, char const **) {
           "Enter a to add person\n"
           "Enter d to delete a person by ssn\n"
           "Enter m to switch menu\n"
+          "Enter f to read from file\n"
         );
         break;
       case PRETTY_MENU:
@@ -68,6 +69,7 @@ int main(int, char const **) {
           "<3        Enter a to add person       <3\n"
           "<3  Enter d to delete a person by ssn <3\n"
           "<3     Enter m to switch menu         <3\n"
+          "<3     Enter f to read from file      <3\n"
           "<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3\n"
         );
         break;
@@ -113,11 +115,36 @@ int main(int, char const **) {
             get_string("Enter social security number", ssn, sizeof(ssn));
             for (int i = 0; i < person_list.count; ++i)
               if (strcmp(person_list.people[i].ssn, ssn) == 0)
-                person_list.people[i] = person_list.people[--person_list.count];
+                person_list.people[i--] = person_list.people[--person_list.count];
             break;
           case 'm':
             menu_type = SELECT_MENU;
             break;
+          case 'f': {
+            char filename[256];
+            while (true) {
+              get_string("Enter filename", filename, sizeof(filename));
+              FILE* f = fopen(filename, "r");
+              if (!f) {
+                printf("File '%s' not found", filename);
+                continue;
+              }
+
+              int row = 0;
+              while (!feof(f)) {
+                Person p = {};
+                int r = fscanf(f, "%s\t%s\t%i\t%s\n", p.first_name, p.surname, &p.age, p.ssn);
+                if (r != 4) {
+                  printf("Invalid input file on row %i\n", row+1);
+                  break;
+                }
+                push_person(&person_list, p);
+                ++row;
+              }
+              fclose(f);
+              break;
+            }
+          } break;
           default:
             puts("Not valid option");
             break;
