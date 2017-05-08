@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 #include "Persons.include"
 
 struct Person {
@@ -122,28 +123,22 @@ int main(int, char const **) {
             break;
           case 'f': {
             char filename[256];
-            while (true) {
-              get_string("Enter filename", filename, sizeof(filename));
-              FILE* f = fopen(filename, "r");
-              if (!f) {
-                printf("File '%s' not found", filename);
-                continue;
-              }
+            get_string("Enter filename", filename, sizeof(filename));
+            FILE* f = fopen(filename, "r");
+            if (!f) {printf("Could not open file: %s\n", strerror(errno)); break;}
 
-              int row = 0;
-              while (!feof(f)) {
-                Person p = {};
-                int r = fscanf(f, "%s\t%s\t%i\t%s\n", p.first_name, p.surname, &p.age, p.ssn);
-                if (r != 4) {
-                  printf("Invalid input file on row %i\n", row+1);
-                  break;
-                }
-                push_person(&person_list, p);
-                ++row;
+            int row = 0;
+            while (!feof(f)) {
+              Person p = {};
+              int r = fscanf(f, "%s\t%s\t%i\t%s\n", p.first_name, p.surname, &p.age, p.ssn);
+              if (r != 4) {
+                printf("Invalid input file on row %i\n", row+1);
+                break;
               }
-              fclose(f);
-              break;
+              push_person(&person_list, p);
+              ++row;
             }
+            fclose(f);
           } break;
           default:
             puts("Not valid option");
