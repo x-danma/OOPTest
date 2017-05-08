@@ -111,13 +111,13 @@ int main(int, char const **) {
             get_string("Enter social security number", p.ssn, sizeof(p.ssn));
             push_person(&person_list, p);
           } break;
-          case 'd':
+          case 'd': {
             char ssn[32];
             get_string("Enter social security number", ssn, sizeof(ssn));
             for (int i = 0; i < person_list.count; ++i)
               if (strcmp(person_list.people[i].ssn, ssn) == 0)
                 person_list.people[i--] = person_list.people[--person_list.count];
-            break;
+          } break;
           case 'm':
             menu_type = SELECT_MENU;
             break;
