@@ -127,16 +127,11 @@ int main(int, char const **) {
             FILE* f = fopen(filename, "r");
             if (!f) {printf("Could not open file: %s\n", strerror(errno)); break;}
 
-            int row = 0;
-            while (!feof(f)) {
+            for (int row = 1; !feof(f); ++row) {
               Person p = {};
               int r = fscanf(f, "%s\t%s\t%i\t%s\n", p.first_name, p.surname, &p.age, p.ssn);
-              if (r != 4) {
-                printf("Invalid input file on row %i\n", row+1);
-                break;
-              }
+              if (r != 4) {printf("Invalid input file on row %i\n", row); break;}
               push_person(&person_list, p);
-              ++row;
             }
             fclose(f);
           } break;
