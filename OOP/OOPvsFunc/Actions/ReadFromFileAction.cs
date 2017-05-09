@@ -1,15 +1,37 @@
+﻿using System;
+using System.IO;
+
 namespace OOPvsFunc
 {
-    public sealed class ReadFromFileAction : Action
+    internal class ReadFromFileAction : IAction
     {
-        public ReadFromFileAction(String filename)
+        private string File { get; set; }
+
+        public ReadFromFileAction(string file)
         {
-            this.person = person;
+            this.File = file;
         }
 
-        public override void Execute(Program program)
+        public void Execute(Program program)
         {
-            program.Register.AddPerson(person);
+            try
+            {
+                using (StreamReader sr = new StreamReader(this.File))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] linearray = line.Split('\t');
+                        Person newPerson = new OOPvsFunc.Person(linearray[0], linearray[1], Int32.Parse(linearray[2]), new SocialNumber(linearray[3]));
+                        program.Register.AddPerson(newPerson);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Failed to read file, error = {e.Message}");
+                throw e;
+            }
         }
     }
 }
