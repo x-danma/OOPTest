@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 
+
+
 namespace OOPvsFunc
 {
     internal class ReadFromFileAction : IAction
@@ -14,6 +16,8 @@ namespace OOPvsFunc
 
         public void Execute(Program program)
         {
+            System.Diagnostics.Stopwatch myStopWatch = new System.Diagnostics.Stopwatch();
+            myStopWatch.Start();
             try
             {
                 using (StreamReader sr = new StreamReader(this.File))
@@ -26,7 +30,10 @@ namespace OOPvsFunc
                         program.Register.AddPerson(newPerson);
                     }
                 }
+                myStopWatch.Stop();
+                Console.WriteLine($"Time to read complete file: {myStopWatch.ElapsedMilliseconds} ms"); 
             }
+            
             catch (Exception e)
             {
                 Console.WriteLine($"Failed to read file, error = {e.Message}");
