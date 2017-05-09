@@ -46,17 +46,7 @@ namespace OOPvsFunc
                 case "m":
                     return new SwitchMenuAction(new SwitchMenuGUI());
                 case "f":
-                    Action a;
-                    while (true) {
-                        try
-                        {
-                            a = new ReadFromFileAction(GetStringInput("Enter filename"));
-                        } catch (Exception e)
-                        {
-                            Console.WriteLine("Please enter a valid filename");
-                        }
-                    }
-                    return a;
+                    return new ReadFromFileAction(GetStringInput("Enter filename"));
                 default:
                     Console.WriteLine("Please enter a correct input\n----------------------\n");
                     throw new FormatException();

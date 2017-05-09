@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\AddAction.cs" />
+    <Compile Include="Actions\ReadFromFileAction.cs" />
     <Compile Include="GUIs\SwitchMenuGUI.cs" />
-    <Compile Include="AddAction.cs" />
     <Compile Include="GUIs\IGUI.cs" />
     <Compile Include="GUIs\PrettyTerminalGUI.cs" />
     <Compile Include="Actions\SwitchMenuAction.cs" />
@@ -52,8 +53,7 @@
     <Compile Include="GUIs\TerminalGUI.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="NoActionException.cs" />
-    <Compile Include="OOPvsFunc\Action.cs" />
-    <Compile Include="OOPvsFunc\Response.cs" />
+    <Compile Include="Actions\IAction.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Actions\PersonAction.cs" />
     <Compile Include="PersonRegister.cs" />
