@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <time.h>
 #include "Persons.include"
 
 struct Person {
@@ -127,13 +128,15 @@ int main(int, char const **) {
             FILE* f = fopen(filename, "r");
             if (!f) {printf("Could not open file: %s\n", strerror(errno)); break;}
 
+            clock_t t = clock();
             for (int row = 1; !feof(f); ++row) {
               Person p = {};
               int r = fscanf(f, "%s\t%s\t%i\t%s\n", p.first_name, p.surname, &p.age, p.ssn);
-              if (r != 4) {printf("Invalid input file on row %i\n", row); break;}
+              if (r != 4) {printf("Invalid input file on row %i\n", row); goto done;}
               push_person(&person_list, p);
             }
-            fclose(f);
+            printf("Completed in %f seconds\n", (float)(clock()-t)/CLOCKS_PER_SEC);
+            done: fclose(f);
           } break;
           default:
             puts("Not valid option");
