@@ -1,0 +1,21 @@
+{
+	"file_exclude_patterns":
+	[
+		"*.out",
+		"*.o",
+		"*.so"
+	],
+	"folders":
+	[
+		{
+			"path": "../Procedural"
+		},
+		{
+			"path": "../OOP"
+		}
+	],
+	"settings":
+	{
+		"tab_size": 2
+	}
+}

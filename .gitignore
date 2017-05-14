@@ -253,3 +253,6 @@ paket-files/
 
 # Linux executables
 *.out
+
+# Sublime
+*.sublime-workspace
