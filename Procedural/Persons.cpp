@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <time.h>
 #include "Persons.include"
+#include "gui.cpp"
 
 struct Person {
   char first_name[32];
@@ -48,6 +49,54 @@ int main(int, char const **) {
   enum MenuType {NORMAL_MENU, PRETTY_MENU, SIMPLE_MENU, SELECT_MENU };
   MenuType  menu_type = NORMAL_MENU;
   PersonList person_list = personlist_create();
+
+  nk_context* gui = gui_init();
+
+  while (true) {
+    gui_begin();
+    /* GUI */
+    if (nk_begin(gui, "Demo", nk_rect(50, 50, 200, 200),
+        NK_WINDOW_BORDER|NK_WINDOW_MOVABLE|NK_WINDOW_SCALABLE|
+        NK_WINDOW_CLOSABLE|NK_WINDOW_MINIMIZABLE|NK_WINDOW_TITLE))
+    {
+        nk_menubar_begin(gui);
+        nk_layout_row_begin(gui, NK_STATIC, 25, 2);
+        nk_layout_row_push(gui, 45);
+        if (nk_menu_begin_label(gui, "FILE", NK_TEXT_LEFT, nk_vec2(120, 200))) {
+            nk_layout_row_dynamic(gui, 30, 1);
+            nk_menu_item_label(gui, "OPEN", NK_TEXT_LEFT);
+            nk_menu_item_label(gui, "CLOSE", NK_TEXT_LEFT);
+            nk_menu_end(gui);
+        }
+        nk_layout_row_push(gui, 45);
+        if (nk_menu_begin_label(gui, "EDIT", NK_TEXT_LEFT, nk_vec2(120, 200))) {
+            nk_layout_row_dynamic(gui, 30, 1);
+            nk_menu_item_label(gui, "COPY", NK_TEXT_LEFT);
+            nk_menu_item_label(gui, "CUT", NK_TEXT_LEFT);
+            nk_menu_item_label(gui, "PASTE", NK_TEXT_LEFT);
+            nk_menu_end(gui);
+        }
+        nk_layout_row_end(gui);
+        nk_menubar_end(gui);
+
+        enum {EASY, HARD};
+        static int op = EASY;
+        static int property = 20;
+        nk_layout_row_static(gui, 30, 80, 1);
+        if (nk_button_label(gui, "button"))
+            fprintf(stdout, "button pressed\n");
+        nk_layout_row_dynamic(gui, 30, 2);
+        if (nk_option_label(gui, "easy", op == EASY)) op = EASY;
+        if (nk_option_label(gui, "hard", op == HARD)) op = HARD;
+        nk_layout_row_dynamic(gui, 25, 1);
+        nk_property_int(gui, "Compression:", 0, &property, 100, 10, 1);
+    }
+    nk_end(gui);
+
+    gui_end();
+  }
+
+
   while (true) {
     /* Print menu */
     switch (menu_type) {
