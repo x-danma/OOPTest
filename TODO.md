@@ -2,6 +2,7 @@
  * Validera SSN format
  * Validera duplicerade SSN
  * Läs/skriv resultaten till fil
+ * Olika persisterings backends - Databas eller fil
  * Gör personer sökbara
 
 #DONE
