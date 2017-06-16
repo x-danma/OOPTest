@@ -1,6 +1,6 @@
 CC ?= g++
 CFLAGS := $(CFLAGS) -Wall -Wextra -Ilib/include
-LFLAGS := -Llib -lSDL2 -lm -lGL -lstdc++
+LFLAGS :=
 OPTFLAGS := -O3 -ffast-math
 
 all: *.cpp *.include
