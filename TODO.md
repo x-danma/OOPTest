@@ -1,5 +1,4 @@
 #TODO
- * Gör personer sökbara
  * Olika persisterings backends - Databas eller fil
  * Validera SSN format
  * Validera duplicerade SSN
@@ -9,6 +8,7 @@
 
 #DONE
  * Läsa in från fil
+ * Gör personer sökbara
 
 #PROJECT IDEAS
  * Machine Learning?
