@@ -12,4 +12,6 @@ namespace OOPvsFunc
             program.Gui.ShowPeople(program.Register.People);
         }
     }
+
+   
 }

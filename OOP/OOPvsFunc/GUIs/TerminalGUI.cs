@@ -26,7 +26,8 @@ namespace OOPvsFunc
             Enter a to add person
             Enter d to delete a person by ssn
             Enter f to read people from file
-            Enter m to switch menu  "
+            Enter m to switch menu  
+            Enter s to search for people"
             );
         }
 
@@ -47,6 +48,8 @@ namespace OOPvsFunc
                     return new SwitchMenuAction(new SwitchMenuGUI());
                 case "f":
                     return new ReadFromFileAction(GetStringInput("Enter filename"));
+                case "s":
+                    return new FindAction(GetStringInput("Please enter firstname"));
                 default:
                     Console.WriteLine("Please enter a correct input\n----------------------\n");
                     throw new FormatException();

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\AddAction.cs" />
+    <Compile Include="Actions\FindAction.cs" />
     <Compile Include="Actions\ReadFromFileAction.cs" />
     <Compile Include="GUIs\SwitchMenuGUI.cs" />
     <Compile Include="GUIs\IGUI.cs" />

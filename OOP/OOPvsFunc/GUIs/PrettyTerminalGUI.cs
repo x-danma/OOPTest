@@ -28,6 +28,8 @@ namespace OOPvsFunc
 
                 <3     Enter f to read file           <3
 
+                <3    Enter s to search for people    <3
+
                 <3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3"
             );
         }

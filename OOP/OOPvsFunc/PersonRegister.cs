@@ -13,12 +13,12 @@ namespace OOPvsFunc
 
         public ReadOnlyCollection<Person> People
         {
-            get 
+            get
             {
                 return people.AsReadOnly();
             }
 
-           
+
         }
 
         internal void DeletePerson(SocialNumber ssn)
@@ -29,6 +29,11 @@ namespace OOPvsFunc
         public void AddPerson(Person newPerson)
         {
             people.Add(newPerson);
+        }
+
+        public List<Person> FindPerson(string substr)
+        {
+            return people.FindAll(x => x.FirstName.IndexOf(substr) != -1);
         }
     }
 }
