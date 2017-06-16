@@ -33,7 +33,10 @@ namespace OOPvsFunc
 
         public List<Person> FindPerson(string substr)
         {
-            return people.FindAll(x => x.FirstName.IndexOf(substr) != -1);
+            return
+                people.FindAll(x => x.FirstName.IndexOf(substr) != -1)
+                .Concat(people.FindAll(x => x.LastName.IndexOf(substr) != -1)).ToList()
+                .Concat(people.FindAll(x => x.Ssn.ToString().IndexOf(substr) != -1)).ToList();
         }
     }
 }

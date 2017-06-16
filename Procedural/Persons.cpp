@@ -49,13 +49,14 @@ PersonList personlist_create(int capacity = 64) {
   return result;
 }
 
+enum MenuType {NORMAL_MENU, PRETTY_MENU, SIMPLE_MENU, SELECT_MENU };
+
 void print_person(Person person, MenuType menu_type) {
-  printf("%s%s %s %i %s \n", menu_type == NORMAL_MENU ? " - " : " <3 ", person->first_name, person->surname, person->age, person->ssn);
+  printf("%s%s %s %i %s \n", menu_type == NORMAL_MENU ? " - " : " <3 ", person.first_name, person.surname, person.age, person.ssn);
 }
 
 
 int main(int, char const **) {
-  enum MenuType {NORMAL_MENU, PRETTY_MENU, SIMPLE_MENU, SELECT_MENU };
   MenuType  menu_type = NORMAL_MENU;
   PersonList person_list = personlist_create();
 
@@ -74,6 +75,7 @@ int main(int, char const **) {
           "Enter s to search for person"
         );
         break;
+
       case PRETTY_MENU:
         puts(
           "<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3\n"
@@ -88,9 +90,11 @@ int main(int, char const **) {
           "<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3\n"
         );
         break;
+
       case SIMPLE_MENU:
         puts("Enter m to switch menu\n");
         break;
+
       case SELECT_MENU:
         puts(
           "Enter n for NORMAL\n"
@@ -112,11 +116,13 @@ int main(int, char const **) {
         switch (command) {
           case 'q':
             return 0;
+
           case 'p':
             puts("Your people are:");
             for (int i = 0; i < person_list.count; ++i)
               print_person(person_list.people[i], menu_type);
             break;
+
           case 'a': {
             Person p = {};
             get_string("Enter first name", p.first_name, sizeof(p.first_name));
@@ -125,6 +131,7 @@ int main(int, char const **) {
             get_string("Enter social security number", p.ssn, sizeof(p.ssn));
             push_person(&person_list, p);
           } break;
+
           case 'd': {
             char ssn[32];
             get_string("Enter social security number", ssn, sizeof(ssn));
@@ -132,9 +139,11 @@ int main(int, char const **) {
               if (strcmp(person_list.people[i].ssn, ssn) == 0)
                 person_list.people[i--] = person_list.people[--person_list.count];
           } break;
+
           case 'm':
             menu_type = SELECT_MENU;
             break;
+
           case 'f': {
             char filename[256];
             get_string("Enter filename", filename, sizeof(filename));
@@ -151,13 +160,14 @@ int main(int, char const **) {
             printf("Completed in %f seconds\n", (float)(clock()-t)/CLOCKS_PER_SEC);
             done: fclose(f);
           } break;
+
           case 's': {
             char substr[128];
             get_string("Please enter firstname", substr, sizeof(substr));
             for (int i = 0; i < person_list.count; ++i)
-              if (strstr(person_list.people[i].first_name, substr))
+              if (strstr(person_list.people[i].first_name, substr) || strstr(person_list.people[i].surname, substr) || strstr(person_list.people[i].ssn, substr))
                   print_person(person_list.people[i], menu_type);                  
-          }break;
+          } break;
 
           default:
             puts("Not valid option");
