@@ -49,6 +49,10 @@ PersonList personlist_create(int capacity = 64) {
   return result;
 }
 
+void print_person(Person person, MenuType menu_type) {
+  printf("%s%s %s %i %s \n", menu_type == NORMAL_MENU ? " - " : " <3 ", person->first_name, person->surname, person->age, person->ssn);
+}
+
 
 int main(int, char const **) {
   enum MenuType {NORMAL_MENU, PRETTY_MENU, SIMPLE_MENU, SELECT_MENU };
@@ -67,6 +71,7 @@ int main(int, char const **) {
           "Enter d to delete a person by ssn\n"
           "Enter m to switch menu\n"
           "Enter f to read from file\n"
+          "Enter s to search for person"
         );
         break;
       case PRETTY_MENU:
@@ -79,6 +84,7 @@ int main(int, char const **) {
           "<3  Enter d to delete a person by ssn <3\n"
           "<3     Enter m to switch menu         <3\n"
           "<3     Enter f to read from file      <3\n"
+          "<3    Enter s to search for person    <3\n"
           "<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3\n"
         );
         break;
@@ -109,7 +115,7 @@ int main(int, char const **) {
           case 'p':
             puts("Your people are:");
             for (int i = 0; i < person_list.count; ++i)
-              printf("%s%s %s %i %s \n", menu_type == NORMAL_MENU ? " - " : " <3 ", person_list.people[i].first_name, person_list.people[i].surname, person_list.people[i].age, person_list.people[i].ssn);
+              print_person(person_list.people[i], menu_type);
             break;
           case 'a': {
             Person p = {};
@@ -145,6 +151,14 @@ int main(int, char const **) {
             printf("Completed in %f seconds\n", (float)(clock()-t)/CLOCKS_PER_SEC);
             done: fclose(f);
           } break;
+          case 's': {
+            char substr[128];
+            get_string("Please enter firstname", substr, sizeof(substr));
+            for (int i = 0; i < person_list.count; ++i)
+              if (strstr(person_list.people[i].first_name, substr))
+                  print_person(person_list.people[i], menu_type);                  
+          }break;
+
           default:
             puts("Not valid option");
             break;
