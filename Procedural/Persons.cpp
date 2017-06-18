@@ -115,12 +115,11 @@ PersonList personlist_create(int capacity = 64) {
   return result;
 }
 
-enum MenuType {NORMAL_MENU, PRETTY_MENU, SIMPLE_MENU, SELECT_MENU };
+enum MenuType {NORMAL_MENU, PRETTY_MENU, SIMPLE_MENU, SELECT_MENU};
 
 void print_person(Person person, MenuType menu_type) {
   printf("%s%s %s %i %s \n", menu_type == NORMAL_MENU ? " - " : " <3 ", person.first_name, person.surname, person.age, person.ssn);
 }
-
 
 void load_people_from_text_file(FILE *input, PersonList *person_list, FILE *persist_file) {
   clock_t t = clock();
