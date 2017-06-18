@@ -1,5 +1,5 @@
 CC ?= g++
-CFLAGS := $(CFLAGS) -Wall -Wextra -Ilib/include
+CFLAGS := $(CFLAGS) -g -Wall -Wextra -Ilib/include
 LFLAGS :=
 OPTFLAGS := -O3 -ffast-math
 

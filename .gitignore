@@ -256,3 +256,5 @@ paket-files/
 
 # Sublime
 *.sublime-workspace
+
+*.bin

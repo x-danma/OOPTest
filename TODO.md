@@ -1,4 +1,8 @@
+#CURRENT
+ * Persistera till fil
+
 #TODO
+ * Optimera ssn-duplikat koll
  * Olika persisterings backends - Databas eller fil
  * Validera SSN format
  * Validera duplicerade SSN
